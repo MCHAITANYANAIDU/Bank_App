@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Home = () => (
-  <div>
-    <h1>🏦 Welcome to the Bank Investment Portal</h1>
-    <p>Select an option from the menu to begin.</p>
-  </div>
-);
+const Home = () => {
+  return (
+    <div className="container mt-4">
+      <h2>🏦 Welcome to the FD & RD Management Portal</h2>
+      <p>Please use the sidebar or menu to navigate through the app.</p>
+    </div>
+  );
+};
 
 export default Home;

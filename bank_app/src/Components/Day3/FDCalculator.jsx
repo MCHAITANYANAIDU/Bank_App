@@ -3,22 +3,38 @@ import React, { useState } from 'react';
 const FDCalculator = () => {
   const [amount, setAmount] = useState('');
   const [tenure, setTenure] = useState('');
-  const [interest, setInterest] = useState('');
+  const [interestRate, setInterestRate] = useState(5.5); // Default
   const [maturity, setMaturity] = useState(null);
 
   const handleCalculate = () => {
-    const calc = parseFloat(amount) + (parseFloat(amount) * parseFloat(interest) * parseFloat(tenure)) / 100;
-    setMaturity(calc.toFixed(2));
+    const interest = (amount * interestRate * tenure) / 100;
+    setMaturity(parseFloat(amount) + interest);
+  };
+
+  const handleTenureChange = (e) => {
+    const value = e.target.value;
+    setTenure(value);
+    if (value >= 60) setInterestRate(7);
+    else if (value >= 36) setInterestRate(6.5);
+    else setInterestRate(5.5);
   };
 
   return (
-    <div>
-      <h2>FD Calculator</h2>
-      <input placeholder="Deposit Amount" type="number" value={amount} onChange={e => setAmount(e.target.value)} />
-      <input placeholder="Tenure (in years)" type="number" value={tenure} onChange={e => setTenure(e.target.value)} />
-      <input placeholder="Interest Rate (%)" type="number" value={interest} onChange={e => setInterest(e.target.value)} />
-      <button onClick={handleCalculate}>Calculate</button>
-      {maturity && <p>Maturity Amount: ₹{maturity}</p>}
+    <div className="container mt-4">
+      <h3>FD Calculator</h3>
+      <div className="mb-3">
+        <label>Deposit Amount</label>
+        <input className="form-control" value={amount} onChange={(e) => setAmount(e.target.value)} type="number" />
+      </div>
+      <div className="mb-3">
+        <label>Tenure (in months)</label>
+        <input className="form-control" value={tenure} onChange={handleTenureChange} type="number" />
+      </div>
+      <div className="mb-3">
+        <label>Interest Rate: {interestRate}%</label>
+      </div>
+      <button className="btn btn-primary" onClick={handleCalculate}>Calculate Maturity</button>
+      {maturity && <div className="alert alert-success mt-3">Maturity Amount: ₹{maturity.toFixed(2)}</div>}
     </div>
   );
 };

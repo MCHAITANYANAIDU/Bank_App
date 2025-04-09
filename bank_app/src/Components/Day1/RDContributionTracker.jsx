@@ -1,34 +1,33 @@
+// src/components/Day1/RDContributionTracker.jsx
 import React, { useState } from 'react';
 
 const RDContributionTracker = () => {
-  const [monthly, setMonthly] = useState(2000);
+  const [monthlyContribution, setMonthlyContribution] = useState(1000);
   const tenure = 12;
-  const total = monthly * tenure;
-  const maturity = total + total * 0.06;
+  const totalInvested = monthlyContribution * tenure;
+  const estimatedMaturity = totalInvested + (totalInvested * 0.06); // 6% interest for demo
 
   return (
-    <div style={styles.card}>
-      <h2>RD Contribution Tracker</h2>
-      <label>
-        Monthly Contribution: ₹
-        <input type="number" value={monthly} onChange={e => setMonthly(+e.target.value)} />
-      </label>
-      <p>Tenure: {tenure} months</p>
-      <p>Total Invested: ₹{total}</p>
-      <p>Estimated Maturity: ₹{maturity.toFixed(2)}</p>
+    <div className="card mb-3 shadow-sm">
+      <div className="card-header bg-success text-white">
+        RD Contribution Tracker
+      </div>
+      <div className="card-body">
+        <div className="mb-3">
+          <label className="form-label">Monthly Contribution (₹)</label>
+          <input
+            type="number"
+            className="form-control"
+            value={monthlyContribution}
+            onChange={(e) => setMonthlyContribution(parseInt(e.target.value))}
+          />
+        </div>
+        <p><strong>Tenure:</strong> {tenure} months</p>
+        <p><strong>Total Invested:</strong> ₹{totalInvested}</p>
+        <p><strong>Estimated Maturity:</strong> ₹{estimatedMaturity.toFixed(2)}</p>
+      </div>
     </div>
   );
-};
-
-const styles = {
-  card: {
-    border: '1px solid #444',
-    padding: '20px',
-    margin: '20px auto',
-    width: '320px',
-    background: '#e6f2ff',
-    borderRadius: '10px'
-  }
 };
 
 export default RDContributionTracker;

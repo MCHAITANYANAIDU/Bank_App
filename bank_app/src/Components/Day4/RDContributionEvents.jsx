@@ -1,28 +1,32 @@
 import React, { useState } from 'react';
 
 const RDContributionEvents = () => {
-  const [contribution, setContribution] = useState(500);
-  const tenure = 12;
+  const [monthlyContribution, setMonthlyContribution] = useState(1000);
+  const [tenure, setTenure] = useState(12);
   const interestRate = 6;
 
-  const handleIncrement = () => setContribution((prev) => prev + 100);
-  const handleDecrement = () =>
-    setContribution((prev) => (prev >= 100 ? prev - 100 : 0));
+  const handleIncrement = () => setMonthlyContribution(prev => prev + 100);
+  const handleDecrement = () => setMonthlyContribution(prev => Math.max(prev - 100, 100));
 
-  const totalInvested = contribution * tenure;
-  const estimatedMaturity = totalInvested + (totalInvested * interestRate * tenure) / (100 * 12);
+  const totalInvestment = monthlyContribution * tenure;
+  const maturityAmount = totalInvestment + (totalInvestment * interestRate * tenure) / (100 * 12);
 
   return (
-    <div className="rd-contribution">
-      <h2>RD Contribution Tracker</h2>
-      <p>Monthly Contribution: ₹{contribution}</p>
-      <div>
-        <button onClick={handleDecrement}>-</button>
-        <button onClick={handleIncrement}>+</button>
+    <div className="card mb-4 p-4">
+      <h4>RD Contribution Tracker</h4>
+      <div className="d-flex align-items-center mb-2">
+        <button className="btn btn-danger me-2" onClick={handleDecrement}>-</button>
+        <span>Monthly Contribution: ₹{monthlyContribution}</span>
+        <button className="btn btn-success ms-2" onClick={handleIncrement}>+</button>
       </div>
-      <p>Tenure: {tenure} months</p>
-      <p>Total Invested: ₹{totalInvested}</p>
-      <p>Estimated Maturity: ₹{estimatedMaturity.toFixed(2)}</p>
+      <div className="mb-2">
+        <label>Tenure (months):</label>
+        <input type="number" className="form-control" value={tenure} onChange={(e) => setTenure(e.target.value)} />
+      </div>
+      <div className="alert alert-info mt-2">
+        <p><strong>Total Investment:</strong> ₹{totalInvestment}</p>
+        <p><strong>Estimated Maturity:</strong> ₹{maturityAmount.toFixed(2)}</p>
+      </div>
     </div>
   );
 };

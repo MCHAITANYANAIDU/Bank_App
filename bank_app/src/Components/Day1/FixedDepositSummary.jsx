@@ -1,34 +1,27 @@
+// src/components/Day1/FixedDepositSummary.jsx
 import React, { useState } from 'react';
 
 const FixedDepositSummary = ({ depositAmount, interestRate, tenure, maturityAmount }) => {
-  const [showDetails, setShowDetails] = useState(false);
+  const [detailed, setDetailed] = useState(false);
 
   return (
-    <div style={styles.card}>
-      <h2>Fixed Deposit Summary</h2>
-      <p>Deposit Amount: ₹{depositAmount}</p>
-      <p>Maturity Amount: ₹{maturityAmount}</p>
-      <button onClick={() => setShowDetails(!showDetails)}>
-        {showDetails ? 'Hide Details' : 'Detailed View'}
-      </button>
-      {showDetails && (
-        <div>
-          <p>Interest Rate: {interestRate}%</p>
-          <p>Tenure: {tenure} years</p>
-        </div>
-      )}
+    <div className="card mb-3 shadow-sm">
+      <div className="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <span>Fixed Deposit Summary</span>
+        <button className="btn btn-light btn-sm" onClick={() => setDetailed(!detailed)}>
+          {detailed ? 'Summary View' : 'Detailed View'}
+        </button>
+      </div>
+      <div className="card-body">
+        <p><strong>Deposit Amount:</strong> ₹{depositAmount}</p>
+        <p><strong>Interest Rate:</strong> {interestRate}%</p>
+        <p><strong>Tenure:</strong> {tenure} months</p>
+        {detailed && (
+          <p><strong>Maturity Amount:</strong> ₹{maturityAmount}</p>
+        )}
+      </div>
     </div>
   );
-};
-
-const styles = {
-  card: {
-    padding: '20px',
-    margin: '20px',
-    border: '1px solid #ddd',
-    borderRadius: '10px',
-    background: '#f9f9f9',
-  },
 };
 
 export default FixedDepositSummary;

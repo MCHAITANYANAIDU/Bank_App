@@ -1,57 +1,73 @@
+// src/components/Day2/RDForm.jsx
 import React, { useState } from 'react';
 
 const RDForm = () => {
-  const [monthly, setMonthly] = useState('');
+  const [monthlyContribution, setMonthlyContribution] = useState('');
   const [tenure, setTenure] = useState('');
-  const [bank, setBank] = useState('');
+  const [bankName, setBankName] = useState('');
   const [summary, setSummary] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const total = parseFloat(monthly) * parseInt(tenure);
-    const maturity = total + total * 0.06;
-    setSummary({ monthly, tenure, bank, total, maturity });
+    const totalInvestment = monthlyContribution * tenure;
+    const maturity = totalInvestment + totalInvestment * 0.05; // 5% interest
+    setSummary({
+      monthlyContribution,
+      tenure,
+      bankName,
+      maturity,
+    });
   };
 
   return (
-    <div style={styles.container}>
-      <h2>RD Plan Creation</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Monthly Contribution: ₹
-          <input type="number" value={monthly} onChange={e => setMonthly(e.target.value)} required />
-        </label>
-        <br />
-        <label>Tenure (months):
-          <input type="number" value={tenure} onChange={e => setTenure(e.target.value)} required />
-        </label>
-        <br />
-        <label>Bank Name:
-          <input type="text" value={bank} onChange={e => setBank(e.target.value)} required />
-        </label>
-        <br />
-        <button type="submit">Create Plan</button>
-      </form>
-      {summary && (
-        <div>
-          <h4>Plan Summary</h4>
-          <p>Bank: {summary.bank}</p>
-          <p>Total Invested: ₹{summary.total}</p>
-          <p>Estimated Maturity: ₹{summary.maturity.toFixed(2)}</p>
-        </div>
-      )}
+    <div className="card mb-4 shadow-sm">
+      <div className="card-header bg-success text-white">RD Plan Creation</div>
+      <div className="card-body">
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label>Monthly Contribution (₹)</label>
+            <input
+              type="number"
+              className="form-control"
+              value={monthlyContribution}
+              onChange={(e) => setMonthlyContribution(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label>Tenure (Months)</label>
+            <input
+              type="number"
+              className="form-control"
+              value={tenure}
+              onChange={(e) => setTenure(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label>Bank Name</label>
+            <input
+              type="text"
+              className="form-control"
+              value={bankName}
+              onChange={(e) => setBankName(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Show Summary
+          </button>
+        </form>
+        {summary && (
+          <div className="mt-3 alert alert-info">
+            <p><strong>Bank:</strong> {summary.bankName}</p>
+            <p><strong>Total Invested:</strong> ₹{summary.monthlyContribution * summary.tenure}</p>
+            <p><strong>Estimated Maturity:</strong> ₹{summary.maturity.toFixed(2)}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    width: '380px',
-    margin: '20px auto',
-    padding: '20px',
-    background: '#e6f7ff',
-    borderRadius: '10px',
-    border: '1px solid #aaa'
-  }
 };
 
 export default RDForm;

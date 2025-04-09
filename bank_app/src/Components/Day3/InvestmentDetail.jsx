@@ -5,10 +5,12 @@ const InvestmentDetail = () => {
   const { id } = useParams();
 
   return (
-    <div>
-      <h2>Investment Details</h2>
-      <p>Investment ID: {id}</p>
-      <p>More info about investment #{id} goes here.</p>
+    <div className="container mt-4">
+      <h3>Investment Details</h3>
+      <div className="alert alert-info">
+        Displaying full details for Investment ID: {id}
+      </div>
+      {/* You can later fetch actual data here */}
     </div>
   );
 };
