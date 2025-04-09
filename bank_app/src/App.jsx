@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Day1Page from './Components/Day1/Day1Page'; // 👈 import this at the top
+
 
 // Day 1 Components
 import FixedDepositSummary from './Components/Day1/FixedDepositSummary';
@@ -22,17 +24,25 @@ import CreateFD from './Components/Day3/CreateFD';
 import CreateRD from './Components/Day3/CreateRD';
 import Support from './Components/Day3/Support';
 
+// Day 4 Components
+import FDMaturityCalc from './Components/Day4/FDMaturityCalc';
+import RDContributionEvents from './Components/Day4/RDContributionEvents';
+import ThemeSwitcher from './Components/Day4/ThemeSwitcher';
+
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+
         {/* Home */}
         <Route path="/" element={<Home />} />
 
         {/* Day 1 Routes */}
-        <Route path="/day1/fd-summary" element={<FixedDepositSummary />} />
-        <Route path="/day1/rd-tracker" element={<RDContributionTracker />} />
-        <Route path="/day1/profile" element={<CustomerProfile />} />
+        {/* Day 1 Routes */}
+<Route path="/day1" element={<Day1Page />} />
+<Route path="/day1/fd-summary" element={<FixedDepositSummary />} />
+<Route path="/day1/rd-tracker" element={<RDContributionTracker />} />
+<Route path="/day1/profile" element={<CustomerProfile />} />
 
         {/* Day 2 Routes */}
         <Route path="/day2/fd-form" element={<FDForm />} />
@@ -48,6 +58,12 @@ const App = () => {
         <Route path="/create-fd" element={<CreateFD />} />
         <Route path="/create-rd" element={<CreateRD />} />
         <Route path="/support" element={<Support />} />
+
+        {/* Day 4 Routes */}
+        <Route path="/day4/fd-maturity" element={<FDMaturityCalc />} />
+        <Route path="/day4/rd-events" element={<RDContributionEvents />} />
+        <Route path="/day4/theme" element={<ThemeSwitcher />} />
+        
       </Routes>
     </BrowserRouter>
   );
