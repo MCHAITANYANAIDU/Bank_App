@@ -1,17 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Day1Assignments from './components/Day1/Day1Assignments';
-import Day2Assignments from './components/Day2/Day2Assignments';
-import Day3Assignments from './components/Day3/Day3Assignments';
-import Day4Assignments from './components/Day4/Day4Assignments';
-import FDCalculator from './components/Day3/FDCalculator';
-import RDSummary from './components/Day3/RDSummary';
-import InvestmentHistory from './components/Day3/InvestmentHistory';
-import InvestmentDetail from './components/Day3/InvestmentDetail';
-import Dashboard from './components/Day3/Dashboard';
-import CreateFD from './components/Day3/CreateFD';
-import CreateRD from './components/Day3/CreateRD';
-import Support from './components/Day3/Support';
+import Home from './Components/Home';
+import Day1Assignments from './Components/Day1/Day1Assignments';
+import Day2Assignments from './Components/Day2/Day2Assignments';
+import Day3Assignments from './Components/Day3/Day3Assignments';
+import Day4Assignments from './Components/Day4/Day4Assignments';
+import FDCalculator from './Components/Day3/FDCalculator';
+import RDSummary from './Components/Day3/RDSummary';
+import InvestmentHistory from './Components/Day3/InvestmentHistory';
+import InvestmentDetail from './Components/Day3/InvestmentDetail';
+import Dashboard from './Components/Day3/Dashboard';
+import CreateFD from './Components/Day3/CreateFD';
+import CreateRD from './Components/Day3/CreateRD';
+import Support from './Components/Day3/Support';
 
 function App() {
   return (
