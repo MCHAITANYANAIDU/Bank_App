@@ -1,5 +1,6 @@
 // src/components/Day2/BranchSelector.jsx
 import React, { useState } from 'react';
+import './BranchSelector.css';
 
 const branches = {
   Hyderabad: { address: 'Ameerpet, Hyderabad', code: 'HYD001', ifsc: 'HYDB0001' },
@@ -15,29 +16,28 @@ const BranchSelector = () => {
   };
 
   return (
-    <div className="card mb-4 shadow-sm">
-      <div className="card-header bg-dark text-white">Bank Branch Selector</div>
-      <div className="card-body">
-        <div className="mb-3">
-          <label>Select Branch</label>
-          <select className="form-select" onChange={handleChange} defaultValue="">
-            <option value="" disabled>Select</option>
-            {Object.keys(branches).map((branch) => (
-              <option key={branch} value={branch}>
-                {branch}
-              </option>
-            ))}
-          </select>
-        </div>
+    <div className="branch-box">
+      <h3 className="branch-title">🌐 Select Your Branch</h3>
 
-        {selectedBranch && (
-          <div className="alert alert-secondary">
-            <p><strong>Address:</strong> {branches[selectedBranch].address}</p>
-            <p><strong>Branch Code:</strong> {branches[selectedBranch].code}</p>
-            <p><strong>IFSC:</strong> {branches[selectedBranch].ifsc}</p>
-          </div>
-        )}
-      </div>
+      <select className="branch-dropdown" onChange={handleChange} defaultValue="">
+        <option value="" disabled>Select a branch</option>
+        {Object.keys(branches).map((branch) => (
+          <option key={branch} value={branch}>
+            {branch}
+          </option>
+        ))}
+      </select>
+
+      {selectedBranch && (
+        <div className="branch-info">
+          <h4 className="info-title">{selectedBranch} Branch Details</h4>
+          <ul className="info-list">
+            <li><strong>📍 Address:</strong> {branches[selectedBranch].address}</li>
+            <li><strong>🏢 Branch Code:</strong> {branches[selectedBranch].code}</li>
+            <li><strong>💳 IFSC:</strong> {branches[selectedBranch].ifsc}</li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

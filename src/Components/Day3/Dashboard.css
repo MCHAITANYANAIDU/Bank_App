@@ -1,0 +1,21 @@
+.dashboard-card {
+    background-color: #f8f9fa;
+    border-left: 6px solid #0d6efd;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .dashboard-card:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-list-group .list-group-item {
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .custom-list-group .list-group-item:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+  }
+  

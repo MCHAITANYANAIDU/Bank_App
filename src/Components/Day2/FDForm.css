@@ -1,0 +1,78 @@
+/* src/components/Day2/FDForm.css */
+
+.fd-form-container {
+    background: linear-gradient(to bottom right, #ffeaa7, #fab1a0);
+    padding: 35px;
+    border-radius: 18px;
+    max-width: 520px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .fd-form-title {
+    text-align: center;
+    color: #2d3436;
+    margin-bottom: 25px;
+    font-size: 24px;
+  }
+  
+  .fd-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .fd-form-group label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: #2d3436;
+  }
+  
+  .fd-form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #dfe6e9;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  }
+  
+  .fd-form-group input:focus {
+    border-color: #fdcb6e;
+    box-shadow: 0 0 8px #fdcb6e99;
+    outline: none;
+  }
+  
+  .fd-btn {
+    background: #d63031;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .fd-btn:hover {
+    background: #c0392b;
+    transform: scale(1.03);
+  }
+  
+  .fd-summary {
+    margin-top: 25px;
+    background: #fff;
+    border-left: 6px solid #d63031;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  }
+  
+  .fd-summary h4 {
+    margin-bottom: 15px;
+    color: #d63031;
+  }
+  

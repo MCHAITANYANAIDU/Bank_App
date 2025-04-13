@@ -1,0 +1,66 @@
+.fds-container {
+    max-width: 500px;
+    margin: 30px auto;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .fds-header {
+    background-color: #282c34;
+    color: #fff;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .fds-header h2 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+  
+  .fds-header button {
+    background-color: #61dafb;
+    border: none;
+    color: #000;
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .fds-header button:hover {
+    background-color: #21a1f1;
+    color: white;
+  }
+  
+  .fds-content {
+    padding: 20px 24px;
+    transition: all 0.4s ease;
+  }
+  
+  .fds-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .fds-row span:first-child {
+    font-weight: 500;
+  }
+  
+  .fds-row.highlight {
+    background-color: #f3faff;
+    border-left: 4px solid #61dafb;
+    padding: 12px 10px;
+    border-radius: 8px;
+    margin-top: 16px;
+  }
+  

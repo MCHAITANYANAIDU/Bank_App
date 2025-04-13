@@ -1,15 +1,37 @@
 // src/components/Day1/CustomerProfile.jsx
 import React from 'react';
+import './CustomerProfile.css';
 
-const CustomerProfile = ({ name, totalFDs, totalRDs, totalInvestment }) => {
+const CustomerProfile = () => {
+  const customer = {
+    name: "M Chaitanya Prasad",
+    email: "mchaitanyaprasad65@gmail.com",
+    phone: "9876543210",
+    pan: "ABCDE1234F"
+  };
+
   return (
-    <div className="card mb-3 shadow-sm">
-      <div className="card-header bg-info text-white">Customer Profile</div>
-      <div className="card-body">
-        <p><strong>Name:</strong> {name}</p>
-        <p><strong>Total FDs:</strong> {totalFDs}</p>
-        <p><strong>Total RDs:</strong> {totalRDs}</p>
-        <p><strong>Total Investment:</strong> ₹{totalInvestment}</p>
+    <div className="fds-container">
+      <div className="fds-header">
+        <h2>Customer Profile</h2>
+      </div>
+      <div className="fds-content">
+        <div className="fds-row">
+          <span>Name</span>
+          <span>{customer.name}</span>
+        </div>
+        <div className="fds-row">
+          <span>Email</span>
+          <span>{customer.email}</span>
+        </div>
+        <div className="fds-row">
+          <span>Phone</span>
+          <span>{customer.phone}</span>
+        </div>
+        <div className="fds-row highlight">
+          <span>PAN Number</span>
+          <span>{customer.pan}</span>
+        </div>
       </div>
     </div>
   );

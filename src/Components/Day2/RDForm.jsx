@@ -1,5 +1,6 @@
 // src/components/Day2/RDForm.jsx
 import React, { useState } from 'react';
+import './RDForm.css';
 
 const RDForm = () => {
   const [monthlyContribution, setMonthlyContribution] = useState('');
@@ -20,52 +21,47 @@ const RDForm = () => {
   };
 
   return (
-    <div className="card mb-4 shadow-sm">
-      <div className="card-header bg-success text-white">RD Plan Creation</div>
-      <div className="card-body">
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label>Monthly Contribution (₹)</label>
-            <input
-              type="number"
-              className="form-control"
-              value={monthlyContribution}
-              onChange={(e) => setMonthlyContribution(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label>Tenure (Months)</label>
-            <input
-              type="number"
-              className="form-control"
-              value={tenure}
-              onChange={(e) => setTenure(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label>Bank Name</label>
-            <input
-              type="text"
-              className="form-control"
-              value={bankName}
-              onChange={(e) => setBankName(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Show Summary
-          </button>
-        </form>
-        {summary && (
-          <div className="mt-3 alert alert-info">
-            <p><strong>Bank:</strong> {summary.bankName}</p>
-            <p><strong>Total Invested:</strong> ₹{summary.monthlyContribution * summary.tenure}</p>
-            <p><strong>Estimated Maturity:</strong> ₹{summary.maturity.toFixed(2)}</p>
-          </div>
-        )}
-      </div>
+    <div className="rd-form-container">
+      <h2 className="rd-form-title">💰 Create Recurring Deposit Plan</h2>
+      <form onSubmit={handleSubmit} className="rd-form">
+        <div className="rd-form-group">
+          <label>Monthly Contribution (₹)</label>
+          <input
+            type="number"
+            value={monthlyContribution}
+            onChange={(e) => setMonthlyContribution(e.target.value)}
+            required
+          />
+        </div>
+        <div className="rd-form-group">
+          <label>Tenure (Months)</label>
+          <input
+            type="number"
+            value={tenure}
+            onChange={(e) => setTenure(e.target.value)}
+            required
+          />
+        </div>
+        <div className="rd-form-group">
+          <label>Bank Name</label>
+          <input
+            type="text"
+            value={bankName}
+            onChange={(e) => setBankName(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="rd-btn">Show Summary</button>
+      </form>
+
+      {summary && (
+        <div className="rd-summary">
+          <h4>📊 Summary</h4>
+          <p><strong>Bank:</strong> {summary.bankName}</p>
+          <p><strong>Total Invested:</strong> ₹{summary.monthlyContribution * summary.tenure}</p>
+          <p><strong>Estimated Maturity:</strong> ₹{summary.maturity.toFixed(2)}</p>
+        </div>
+      )}
     </div>
   );
 };

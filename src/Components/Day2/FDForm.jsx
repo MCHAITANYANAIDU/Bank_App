@@ -1,5 +1,6 @@
 // src/components/Day2/FDForm.jsx
 import React, { useState } from 'react';
+import './FDForm.css';
 
 const FDForm = () => {
   const [depositAmount, setDepositAmount] = useState('');
@@ -14,49 +15,40 @@ const FDForm = () => {
   };
 
   return (
-    <div className="card mb-4 shadow-sm">
-      <div className="card-header bg-warning text-dark">FD Investment Form</div>
-      <div className="card-body">
-        <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label>Deposit Amount (₹)</label>
-            <input
-              type="number"
-              className="form-control"
-              value={depositAmount}
-              onChange={(e) => setDepositAmount(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label>Tenure (in months)</label>
-            <input
-              type="number"
-              className="form-control"
-              value={tenure}
-              onChange={(e) => setTenure(e.target.value)}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label>Interest Rate (%)</label>
-            <input
-              type="text"
-              className="form-control"
-              value={interestRate}
-              disabled
-            />
-          </div>
-          <button className="btn btn-primary" type="submit">
-            Calculate Maturity
-          </button>
-        </form>
-        {maturityAmount && (
-          <div className="mt-3 alert alert-success">
-            Maturity Amount: ₹{maturityAmount.toFixed(2)}
-          </div>
-        )}
-      </div>
+    <div className="fd-form-container">
+      <h2 className="fd-form-title">📈 Fixed Deposit Calculator</h2>
+      <form onSubmit={handleSubmit} className="fd-form">
+        <div className="fd-form-group">
+          <label>Deposit Amount (₹)</label>
+          <input
+            type="number"
+            value={depositAmount}
+            onChange={(e) => setDepositAmount(e.target.value)}
+            required
+          />
+        </div>
+        <div className="fd-form-group">
+          <label>Tenure (Months)</label>
+          <input
+            type="number"
+            value={tenure}
+            onChange={(e) => setTenure(e.target.value)}
+            required
+          />
+        </div>
+        <div className="fd-form-group">
+          <label>Interest Rate (%)</label>
+          <input type="text" value={interestRate} disabled />
+        </div>
+        <button type="submit" className="fd-btn">Calculate Maturity</button>
+      </form>
+
+      {maturityAmount && (
+        <div className="fd-summary">
+          <h4>💡 Maturity Details</h4>
+          <p><strong>Total Maturity:</strong> ₹{maturityAmount.toFixed(2)}</p>
+        </div>
+      )}
     </div>
   );
 };

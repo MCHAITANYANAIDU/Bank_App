@@ -1,0 +1,16 @@
+.rd-card {
+    border-radius: 15px;
+    background-color: #fefefe;
+    transition: all 0.3s ease;
+  }
+  
+  .rd-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+  }
+  
+  input:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+  }
+  

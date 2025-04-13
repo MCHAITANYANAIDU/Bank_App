@@ -1,30 +1,30 @@
 // src/components/Day1/RDContributionTracker.jsx
-import React, { useState } from 'react';
+import React from 'react';
+import './RDContributionTracker.css';
 
-const RDContributionTracker = () => {
-  const [monthlyContribution, setMonthlyContribution] = useState(1000);
-  const tenure = 12;
-  const totalInvested = monthlyContribution * tenure;
-  const estimatedMaturity = totalInvested + (totalInvested * 0.06); // 6% interest for demo
-
+const RDContributionTracker = ({ monthlyAmount, interestRate, months, totalAmount }) => {
   return (
-    <div className="card mb-3 shadow-sm">
-      <div className="card-header bg-success text-white">
-        RD Contribution Tracker
+    <div className="fds-container">
+      <div className="fds-header">
+        <h2>RD Contribution Tracker</h2>
       </div>
-      <div className="card-body">
-        <div className="mb-3">
-          <label className="form-label">Monthly Contribution (₹)</label>
-          <input
-            type="number"
-            className="form-control"
-            value={monthlyContribution}
-            onChange={(e) => setMonthlyContribution(parseInt(e.target.value))}
-          />
+      <div className="fds-content">
+        <div className="fds-row">
+          <span>Monthly Contribution</span>
+          <span>₹{monthlyAmount}</span>
         </div>
-        <p><strong>Tenure:</strong> {tenure} months</p>
-        <p><strong>Total Invested:</strong> ₹{totalInvested}</p>
-        <p><strong>Estimated Maturity:</strong> ₹{estimatedMaturity.toFixed(2)}</p>
+        <div className="fds-row">
+          <span>Interest Rate</span>
+          <span>{interestRate}%</span>
+        </div>
+        <div className="fds-row">
+          <span>Duration</span>
+          <span>{months} months</span>
+        </div>
+        <div className="fds-row highlight">
+          <span>Total Amount</span>
+          <span>₹{totalAmount}</span>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,68 @@
+/* src/components/Day2/BranchSelector.css */
+
+.branch-box {
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    padding: 25px 30px;
+    max-width: 480px;
+    margin: 30px auto;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .branch-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  
+  .branch-dropdown {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .branch-dropdown:hover {
+    border-color: #3498db;
+    box-shadow: 0 0 10px #3498db30;
+  }
+  
+  .branch-info {
+    margin-top: 20px;
+    padding: 15px 20px;
+    border-radius: 14px;
+    background-color: #ffffff;
+    border-left: 6px solid #3498db;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .branch-info:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #2980b9;
+  }
+  
+  .info-list {
+    list-style: none;
+    padding: 0;
+    color: #333;
+  }
+  
+  .info-list li {
+    margin-bottom: 8px;
+    font-size: 15px;
+  }
+  
